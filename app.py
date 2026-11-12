@@ -8,7 +8,7 @@ TOTAL_PAGES = 20
 # ---------- Styling ----------
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Dancing+Script:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Dancing+Script:wght@500;700&family=Nunito:wght@400;600;700&display=swap');
 .stApp { background: linear-gradient(160deg, #FFF9E6 0%, #FBEBB5 100%); }
 html, body, [class*="css"] { font-family: 'Playfair Display', serif; color: #5C4410; }
 .title { font-family: 'Great Vibes', cursive; font-size: 54px; color: #B8860B;
@@ -18,11 +18,22 @@ html, body, [class*="css"] { font-family: 'Playfair Display', serif; color: #5C4
          padding: 14px 18px; box-shadow: 0 6px 18px rgba(184,134,11,.25); margin-bottom: 14px; }
 .datebig { font-family:'Dancing Script',cursive; font-size:30px; color:#B8860B; text-align:center; }
 .pageno { text-align:center; font-size:14px; letter-spacing:3px; color:#a88a3a; }
-.stTextArea textarea { font-family:'Dancing Script',cursive !important; font-size:24px !important;
-    line-height:34px !important; background: repeating-linear-gradient(#FFFDF5, #FFFDF5 33px, #EBD48A 34px) !important;
-    color:#4a3708 !important; border:1.5px solid #D4AF37 !important; border-radius:12px !important; }
-.stTextInput input { font-family:'Playfair Display',serif; border:1.5px solid #D4AF37 !important;
-    background:#FFFDF5 !important; border-radius:10px !important; }
+/* Simple, clear fonts + dark readable text for all inputs */
+label, [data-testid="stWidgetLabel"] p, .stMarkdown p, [data-testid="stFileUploader"] small,
+[data-testid="stFileUploader"] span { color:#5C4410 !important; font-family:'Nunito',sans-serif !important; font-weight:600; }
+input, textarea, select, [data-baseweb="select"] div {
+    font-family:'Nunito',sans-serif !important; color:#2e2306 !important;
+    -webkit-text-fill-color:#2e2306 !important; font-size:17px !important; }
+input::placeholder, textarea::placeholder { color:#9a8a5a !important; -webkit-text-fill-color:#9a8a5a !important; }
+[data-baseweb="input"], [data-baseweb="base-input"], [data-baseweb="select"] > div, [data-baseweb="textarea"] {
+    background:#FFFDF5 !important; border:1.5px solid #D4AF37 !important; border-radius:10px !important; }
+.stTextArea textarea { line-height:32px !important; font-size:18px !important;
+    background: repeating-linear-gradient(#FFFDF5, #FFFDF5 31px, #EBD48A 32px) !important; }
+[data-testid="stExpander"] { background:#FFFDF5; border:1.5px solid #D4AF37; border-radius:12px; }
+[data-testid="stExpander"] summary, [data-testid="stExpander"] summary p { color:#5C4410 !important; background:transparent !important; }
+[data-testid="stFileUploaderDropzone"] { background:#FFFDF5 !important; border:1.5px dashed #D4AF37 !important; }
+[data-testid="stFileUploaderDropzone"] button { color:white !important; }
+[data-testid="stHeader"] { background:transparent !important; }
 .stButton button, .stDownloadButton button { background: linear-gradient(135deg,#E6C35C,#B8860B);
     color:white; border:none; border-radius:25px; font-weight:700; }
 .avatar { display:block; margin:8px auto; width:160px; height:160px; border-radius:50%;
